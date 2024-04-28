@@ -1,0 +1,223 @@
+{
+    "os": "Linux-5.15.0-1036-azure-x86_64-with-glibc2.31",
+    "python": "3.10.13",
+    "heartbeatAt": "2024-04-09T14:18:17.843041",
+    "startedAt": "2024-04-09T14:18:17.425845",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--local_rank=0",
+        "--deepspeed",
+        "../deepspeed/ds_z3_config.json",
+        "--stage",
+        "pt",
+        "--do_train",
+        "--model_name_or_path",
+        "/home/v-leiwang8/llm_models/mistral-7B-v0.2",
+        "--dataset",
+        "example",
+        "--dataset_dir",
+        "../../data",
+        "--template",
+        "mistral",
+        "--finetuning_type",
+        "lora",
+        "--output_dir",
+        "../../saves/Mistral-7B-v0.2/full/pt",
+        "--overwrite_cache",
+        "--overwrite_output_dir",
+        "--cutoff_len",
+        "1024",
+        "--preprocessing_num_workers",
+        "16",
+        "--per_device_train_batch_size",
+        "1",
+        "--per_device_eval_batch_size",
+        "1",
+        "--gradient_accumulation_steps",
+        "2",
+        "--lr_scheduler_type",
+        "cosine",
+        "--logging_steps",
+        "10",
+        "--warmup_steps",
+        "20",
+        "--save_steps",
+        "100",
+        "--eval_steps",
+        "100",
+        "--evaluation_strategy",
+        "steps",
+        "--learning_rate",
+        "5e-5",
+        "--num_train_epochs",
+        "3.0",
+        "--max_samples",
+        "3000",
+        "--val_size",
+        "0.1",
+        "--ddp_timeout",
+        "180000000",
+        "--plot_loss",
+        "--fp16"
+    ],
+    "state": "running",
+    "program": "/home/v-leiwang8/LLaMA-Factory/examples/full_multi_gpu/../../src/train_bash.py",
+    "codePathLocal": null,
+    "codePath": "src/train_bash.py",
+    "git": {
+        "remote": "https://github.com/hiyouga/LLaMA-Factory.git",
+        "commit": "7f6c2486b83e1d2c96a2314bfa8e1519ca5f574e"
+    },
+    "email": "zxcptss@gmail.com",
+    "root": "/home/v-leiwang8/LLaMA-Factory",
+    "host": "GCRAZGDL1477",
+    "username": "REDMOND.v-leiwang8",
+    "executable": "/anaconda/envs/llm/bin/python",
+    "cpu_count": 24,
+    "cpu_count_logical": 24,
+    "cpu_freq": {
+        "current": 2450.6274583333325,
+        "min": 0.0,
+        "max": 0.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2445.441,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2445.441,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2569.916,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2445.441,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2445.441,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2445.441,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2445.441,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2445.441,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2445.441,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2445.441,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2445.441,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2445.441,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2445.441,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2445.441,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2445.441,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2445.441,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2445.441,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2445.441,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2445.441,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2445.441,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2445.441,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2445.441,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2445.441,
+            "min": 0.0,
+            "max": 0.0
+        },
+        {
+            "current": 2445.441,
+            "min": 0.0,
+            "max": 0.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 992.2479553222656,
+            "used": 930.3943405151367
+        }
+    },
+    "gpu": "NVIDIA A100 80GB PCIe",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA A100 80GB PCIe",
+            "memory_total": 85899345920
+        }
+    ],
+    "memory": {
+        "total": 216.2715835571289
+    }
+}

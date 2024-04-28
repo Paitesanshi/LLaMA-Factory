@@ -11,7 +11,7 @@ require_version("openai>=1.5.0", "To fix: pip install openai>=1.5.0")
 def main():
     client = OpenAI(
         api_key="0",
-        base_url="http://localhost:{}/v1".format(os.environ.get("API_PORT", 8000)),
+        base_url="http://localhost:{}/v1".format(os.environ.get("API_PORT", 2025)),
     )
     messages = [{"role": "user", "content": "Write a long essay about environment protection as long as possible."}]
     num_tokens = 0

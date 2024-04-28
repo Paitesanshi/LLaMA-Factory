@@ -30,7 +30,7 @@ def run_exp(args: Optional[Dict[str, Any]] = None, callbacks: Optional[List["Tra
     if finetuning_args.stage == "pt":
         run_pt(model_args, data_args, training_args, finetuning_args, callbacks)
     elif finetuning_args.stage == "sft":
-        run_sft(model_args, data_args, training_args, finetuning_args, generating_args, callbacks)
+        run_sft(model_args, data_args, training_args, finetuning_args, generating_args, callbacks,custom_rm=True)
     elif finetuning_args.stage == "rm":
         run_rm(model_args, data_args, training_args, finetuning_args, callbacks)
     elif finetuning_args.stage == "ppo":
@@ -39,6 +39,8 @@ def run_exp(args: Optional[Dict[str, Any]] = None, callbacks: Optional[List["Tra
         run_dpo(model_args, data_args, training_args, finetuning_args, callbacks)
     elif finetuning_args.stage == "orpo":
         run_orpo(model_args, data_args, training_args, finetuning_args, callbacks)
+    # elif finetuning_args.stage == "point":
+    #     run_sft(model_args, data_args, training_args, finetuning_args, callbacks,custom_rm=True)
     else:
         raise ValueError("Unknown task.")
 

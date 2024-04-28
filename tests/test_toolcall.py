@@ -21,7 +21,7 @@ def calculate_gpa(grades: Sequence[str], hours: Sequence[int]) -> float:
 def main():
     client = OpenAI(
         api_key="0",
-        base_url="http://localhost:{}/v1".format(os.environ.get("API_PORT", 8000)),
+        base_url="http://localhost:{}/v1".format(os.environ.get("API_PORT", 2025)),
     )
     tools = [
         {

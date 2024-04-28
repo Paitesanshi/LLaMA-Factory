@@ -1,7 +1,8 @@
 #!/bin/bash
 
 CUDA_VISIBLE_DEVICES=0 python ../../src/web_demo.py \
-    --model_name_or_path meta-llama/Llama-2-7b-hf \
-    --adapter_name_or_path ../../saves/LLaMA2-7B/lora/sft \
-    --template default \
+    --model_name_or_path /home/v-leiwang8/llm_models/mistral-7B-v0.2 \
+    --template mistral \
+    --adapter_name_or_path ../../saves/Mistral-7B-v0.2/full/pt/ \
+    
     --finetuning_type lora

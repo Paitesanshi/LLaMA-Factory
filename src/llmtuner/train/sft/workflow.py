@@ -27,10 +27,14 @@ def run_sft(
     finetuning_args: "FinetuningArguments",
     generating_args: "GeneratingArguments",
     callbacks: Optional[List["TrainerCallback"]] = None,
+    custom_rm:bool=False
 ):
     tokenizer = load_tokenizer(model_args)
     dataset = get_dataset(tokenizer, model_args, data_args, training_args, stage="sft")
-    model = load_model(tokenizer, model_args, finetuning_args, training_args.do_train)
+    if custom_rm:
+        model = load_model(tokenizer, model_args, finetuning_args, training_args.do_train,add_valuehead=True,custom_rm=True)
+    else:
+        model = load_model(tokenizer, model_args, finetuning_args, training_args.do_train)
 
     if training_args.predict_with_generate:
         tokenizer.padding_side = "left"  # use left-padding in generation

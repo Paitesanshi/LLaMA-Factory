@@ -53,6 +53,7 @@ def load_model(
     finetuning_args: "FinetuningArguments",
     is_trainable: bool = False,
     add_valuehead: bool = False,
+    custom_rm: bool=False,
 ) -> "PreTrainedModel":
     r"""
     Loads pretrained model. Must after load_tokenizer.
@@ -93,7 +94,13 @@ def load_model(
     model = init_adapter(model, model_args, finetuning_args, is_trainable)
 
     if add_valuehead:
-        model: "AutoModelForCausalLMWithValueHead" = AutoModelForCausalLMWithValueHead.from_pretrained(model)
+        
+        if custom_rm:
+            from chatglm_rm import ChatGLMRM
+            model: "AutoModelForCausalLMWithValueHead" = ChatGLMRM.from_pretrained(model)
+
+        else:
+            model: "AutoModelForCausalLMWithValueHead" = AutoModelForCausalLMWithValueHead.from_pretrained(model)
         patch_valuehead_model(model)
 
         if model_args.adapter_name_or_path is not None:

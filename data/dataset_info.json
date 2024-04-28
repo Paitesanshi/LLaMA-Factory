@@ -67,6 +67,22 @@
       "history": "history"
     }
   },
+  "roleplay-instruct": {
+    "file_name": "roleplay-instruct.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output"
+    }
+  },
+  "evaluation": {
+    "file_name": "evaluation.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output"
+    }
+  },
   "guanaco": {
     "hf_hub_url": "JosephusCheung/GuanacoDataset",
     "ms_hub_url": "AI-ModelScope/GuanacoDataset"
@@ -318,7 +334,7 @@
     "ms_hub_url": "AI-ModelScope/RLAIF-Nectar",
     "ranking": true
   },
-  "orca_dpo_de" : {
+  "orca_dpo_de": {
     "hf_hub_url": "mayflowergmbh/intel_orca_dpo_pairs_de",
     "ranking": true
   },

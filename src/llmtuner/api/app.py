@@ -80,6 +80,83 @@ def create_app(chat_model: "ChatModel") -> "FastAPI":
         Role.TOOL: DataRole.OBSERVATION.value,
     }
 
+    from fastapi import Request
+    @app.post("/", status_code=status.HTTP_200_OK)
+    async def generate(request: Request):
+        # if not chat_model.engine.can_generate:
+        #     raise HTTPException(status_code=status.HTTP_405_METHOD_NOT_ALLOWED, detail="Not allowed")
+
+        # if len(request.messages) == 0:
+        #     raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid length")
+
+        # if request.messages[0].role == Role.SYSTEM:
+        #     system = request.messages.pop(0).content
+        # else:
+        #     system = ""
+        system=""
+        json_post_raw = await request.json()
+        json_post = json.dumps(json_post_raw)
+        json_post_list = json.loads(json_post)
+        prompt = json_post_list.get('prompt')
+        # if len(request.messages) % 2 == 0:
+        #     raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Only supports u/a/u/a/u...")
+
+        input_messages = []
+        # for i, message in enumerate(request.messages):
+        #     if i % 2 == 0 and message.role not in [Role.USER, Role.TOOL]:
+        #         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid role")
+        #     elif i % 2 == 1 and message.role not in [Role.ASSISTANT, Role.FUNCTION]:
+        #         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid role")
+
+        #     if message.role == Role.ASSISTANT and isinstance(message.tool_calls, list) and len(message.tool_calls):
+        #         name = message.tool_calls[0].function.name
+        #         arguments = message.tool_calls[0].function.arguments
+        #         content = json.dumps({"name": name, "argument": arguments}, ensure_ascii=False)
+        #         input_messages.append({"role": role_mapping[Role.FUNCTION], "content": content})
+        #     else:
+        input_messages.append({"role": role_mapping['user'], "content": prompt})
+
+       # tool_list = request.tools
+        # if isinstance(tool_list, list) and len(tool_list):
+        #     try:
+        #         tools = json.dumps([dictify(tool.function) for tool in tool_list], ensure_ascii=False)
+        #     except Exception:
+        #         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid tools")
+        # else:
+        #     tools = ""
+
+        # if request.stream:
+        #     if tools:
+        #         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Cannot stream function calls.")
+
+        #     generate = stream_chat_completion(input_messages, system, tools, request)
+        #     return EventSourceResponse(generate, media_type="text/event-stream")
+
+        responses = await chat_model.achat(
+            input_messages,
+            system,
+            [],
+            # do_sample=request.do_sample,
+            # temperature=request.temperature,
+            # top_p=request.top_p,
+            max_new_tokens=512,
+            # num_return_sequences=request.n,
+        )
+
+        prompt_length, response_length = 0, 0
+        choices = []
+        import datetime
+        now = datetime.datetime.now()
+        time = now.strftime("%Y-%m-%d %H:%M:%S")
+        answer = {
+            "response": responses[0].response_text,
+            "history": [],
+            "status": 200,
+            "time": time
+        }
+        return answer
+
+
     @app.get("/v1/models", response_model=ModelList)
     async def list_models():
         model_card = ModelCard(id="gpt-3.5-turbo")
@@ -227,4 +304,4 @@ def create_app(chat_model: "ChatModel") -> "FastAPI":
 if __name__ == "__main__":
     chat_model = ChatModel()
     app = create_app(chat_model)
-    uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("API_PORT", 8000)), workers=1)
+    uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("API_PORT", 2025)), workers=1)
