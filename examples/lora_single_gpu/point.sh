@@ -4,11 +4,11 @@ CUDA_VISIBLE_DEVICES=0 python ../../src/train_bash.py \
     --stage sft \
     --do_train \
     --model_name_or_path  THUDM/chatglm3-6b\
-    --dataset example \
+    --dataset reward_data \
     --dataset_dir ../../data \
     --template default \
     --finetuning_type lora \
-    --lora_target q_proj,v_proj \
+    --lora_target query_key_value \
     --output_dir ../../saves/ChatGLM/lora/point \
     --overwrite_cache \
     --overwrite_output_dir \
