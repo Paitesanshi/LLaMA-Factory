@@ -6,7 +6,7 @@ from transformers.utils.versions import require_version
 
 from ...extras.constants import IGNORE_INDEX
 from ...extras.packages import is_jieba_available, is_nltk_available, is_rouge_available
-
+import torch
 
 if TYPE_CHECKING:
     from transformers.tokenization_utils import PreTrainedTokenizer
@@ -64,3 +64,8 @@ class ComputeMetrics:
             score_dict["bleu-4"].append(round(bleu_score * 100, 4))
 
         return {k: float(np.mean(v)) for k, v in score_dict.items()}
+
+def compute_accuracy(eval_preds: Sequence[Union[np.ndarray, Tuple[np.ndarray]]]) -> Dict[str, float]:
+    preds, labels = eval_preds
+    rmse = torch.sqrt(torch.mean((preds - labels) ** 2))
+    return {"rmse": rmse }

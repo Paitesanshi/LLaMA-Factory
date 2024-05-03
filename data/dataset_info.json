@@ -67,6 +67,15 @@
       "history": "history"
     }
   },
+  "reward_data": {
+    "script_url": "reward_data",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
   "roleplay-instruct": {
     "file_name": "roleplay-instruct.json",
     "columns": {

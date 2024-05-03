@@ -42,11 +42,14 @@ class ChatGLMRM(AutoModelForCausalLMWithValueHead):
         last_hidden_state = base_model_output.hidden_states[-1]
         lm_logits = base_model_output.logits
         loss = base_model_output.loss
+        
 
         if last_hidden_state.device != self.v_head.summary.weight.device:
             last_hidden_state = last_hidden_state.to(self.v_head.summary.weight.device)
 
-        value = F.sigmoid(self.v_head(last_hidden_state).squeeze(-1))*4+1
+        
+        hidden_state=last_hidden_state[-1]
+        value = F.sigmoid(self.v_head(hidden_state).squeeze())
 
         # force upcast in fp32 if logits are in half-precision
         if lm_logits.dtype != torch.float32:

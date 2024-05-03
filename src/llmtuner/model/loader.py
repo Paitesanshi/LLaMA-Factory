@@ -96,8 +96,8 @@ def load_model(
     if add_valuehead:
         
         if custom_rm:
-            from chatglm_rm import ChatGLMRM
-            model: "AutoModelForCausalLMWithValueHead" = ChatGLMRM.from_pretrained(model)
+            from .chatglm_rm import ChatGLMRM
+            model: "PreTrainedModel" = ChatGLMRM.from_pretrained(model)
 
         else:
             model: "AutoModelForCausalLMWithValueHead" = AutoModelForCausalLMWithValueHead.from_pretrained(model)

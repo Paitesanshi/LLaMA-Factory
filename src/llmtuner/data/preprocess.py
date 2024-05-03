@@ -54,7 +54,7 @@ def preprocess_supervised_dataset(
 ) -> Dict[str, List[List[int]]]:
     # build inputs with format `<bos> X Y <eos>` and labels with format `<ignore> ... <ignore> Y <eos>`
     # for multiturn examples, we only mask the prompt part in each prompt-response pair.
-    model_inputs = {"input_ids": [], "attention_mask": [], "labels": []}
+    model_inputs = {"input_ids": [], "attention_mask": [], "labels": [],"scores":[]}
 
     for i in range(len(examples["prompt"])):
         if len(examples["prompt"][i]) % 2 != 1 or len(examples["response"][i]) != 1:
@@ -89,6 +89,8 @@ def preprocess_supervised_dataset(
         model_inputs["input_ids"].append(input_ids)
         model_inputs["attention_mask"].append([1] * len(input_ids))
         model_inputs["labels"].append(labels)
+        #model_inputs["labels"].append([int(examples["response"][i][0]['content'])])
+        model_inputs["scores"].append([int(examples["response"][i][0]['content'])])
 
     return model_inputs
 
@@ -227,7 +229,7 @@ def print_supervised_dataset_example(example: Dict[str, List[int]], tokenizer: "
             tokenizer.decode(list(filter(lambda x: x != IGNORE_INDEX, example["labels"])), skip_special_tokens=False)
         )
     )
-
+    print("Score labels:\n{}".format(example['labels']))
 
 def print_pairwise_dataset_example(example: Dict[str, List[int]], tokenizer: "PreTrainedTokenizer") -> None:
     print("prompt_ids:\n{}".format(example["prompt_ids"]))
