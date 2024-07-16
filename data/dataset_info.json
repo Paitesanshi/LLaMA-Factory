@@ -245,6 +245,15 @@
       "tools": "tools"
     }
   },
+  "reward": {
+    "script_url": "reward",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": "history"
+    }
+  },
   "cosmopedia": {
     "hf_hub_url": "HuggingFaceTB/cosmopedia",
     "columns": {

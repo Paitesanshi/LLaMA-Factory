@@ -1,0 +1,20 @@
+,Title,Judger,Narrator,Model,Knowledge Accuracy,Emotional Expression,Personality Traits,Behavioral Accuracy,Immersion,Adaptability,Behavioral Coherence,Average
+0,西游记,azure_GPT-4-Turbo,gpt-3.5,Baichuan2-7B-Chat,2,3,3,3,2,3,3,2.7142857142857144
+1,西游记,azure_GPT-4-Turbo,gpt-3.5,Baichuan2-7B-Chat,4,4,4,4,4,4,4,4.0
+2,西游记,azure_GPT-4-Turbo,gpt-3.5,Baichuan2-7B-Chat,4,3,4,4,4,3,4,3.7142857142857144
+3,西游记,azure_GPT-4-Turbo,gpt-3.5,Baichuan2-7B-Chat,1,2,1,1,1,2,1,1.2857142857142858
+4,西游记,azure_GPT-4-Turbo,gpt-3.5,bc_sft_new,2,3,4,4,3,3,4,3.2857142857142856
+5,西游记,azure_GPT-4-Turbo,gpt-3.5,bc_sft_new,1,2,1,1,1,2,1,1.2857142857142858
+6,西游记,azure_GPT-4-Turbo,gpt-3.5,bc_sft_new,4,4,5,5,4,4,5,4.428571428571429
+7,西游记,azure_GPT-4-Turbo,gpt-3.5,bc_sft_new,4,4,5,5,4,4,5,4.428571428571429
+8,西游记,azure_GPT-4-Turbo,gpt-3.5,bc_sft_new,5,4,5,5,5,4,5,4.714285714285714
+9,西游记,azure_GPT-4-Turbo,gpt-3.5,bc_sft_new,5,4,5,5,5,4,5,4.714285714285714
+10,西游记,azure_GPT-4-Turbo,gpt-3.5,bc_sft_new,2,2,2,2,2,2,2,2.0
+11,西游记,azure_GPT-4-Turbo,gpt-3.5,bc_sft_new,5,4,5,5,4,4,5,4.571428571428571
+12,西游记,azure_GPT-4-Turbo,gpt-3.5,Baichuan2-13B-Chat,2,4,4,4,3,3,4,3.4285714285714284
+13,西游记,azure_GPT-4-Turbo,gpt-3.5,Baichuan2-13B-Chat,1,1,1,1,1,1,1,1.0
+14,西游记,azure_GPT-4-Turbo,gpt-3.5,gpt-3.5,2,3,3,3,3,3,3,2.857142857142857
+15,西游记,azure_GPT-4-Turbo,gpt-3.5,gpt-3.5,1,2,1,1,1,2,1,1.2857142857142858
+16,西游记,azure_GPT-4-Turbo,gpt-3.5,gpt-3.5,4,4,4,4,4,4,4,4.0
+17,西游记,azure_GPT-4-Turbo,gpt-3.5,gpt-3.5,2,3,2,2,2,3,2,2.2857142857142856
+18,西游记,azure_GPT-4-Turbo,gpt-3.5,gpt-3.5,5,4,5,5,5,4,5,4.714285714285714

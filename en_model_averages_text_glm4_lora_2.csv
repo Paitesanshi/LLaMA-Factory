@@ -1,0 +1,5 @@
+Judger,Narrator,Model,Knowledge Accuracy,Emotional Expression,Personality Traits,Behavioral Accuracy,Immersion,Adaptability,Behavioral Coherence,Average
+azure_GPT-4-Turbo,gpt-3.5,gpt-3.5,4.0,4.25,4.25,4.0,4.25,4.25,4.0,4.142857142857143
+azure_GPT-4-Turbo,gpt-3.5,Baichuan2-7B-Chat,3.25,3.25,4.0,3.75,3.5,3.25,3.5,3.5
+azure_GPT-4-Turbo,gpt-3.5,Baichuan2-13B-Chat,3.3333333333333335,2.6666666666666665,3.3333333333333335,3.3333333333333335,3.0,3.0,3.3333333333333335,3.142857142857143
+azure_GPT-4-Turbo,gpt-3.5,bc_sft_new,2.3333333333333335,3.0,3.3333333333333335,3.0,3.0,3.3333333333333335,3.0,3.0
