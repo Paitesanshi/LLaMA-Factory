@@ -1,2 +1,2 @@
-model_name_or_path: /home/v-leiwang8/sft_july/LLaMA-Factory/models/glm4_lora
-template: glm4
+model_name_or_path: Qwen/Qwen1.5-14B-Chat
+template: qwen
